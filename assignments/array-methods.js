@@ -82,7 +82,21 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// The event director needs a list of the participants names to be sorted alphabetically by last name to speed up the sign-in process.
+let checkInSheet = runners.map((runner) => `${runner.last_name}, ${runner.first_name}`).sort();
+console.log(checkInSheet);
 
 // Problem 2
+// The event director wants to recognize the top 5 donors with Gold, Silver and Bronze awards. Find and list the top 3 donors with their information.
+let topDonors = runners.sort((a, b) => b.donation - a.donation).slice(0, 5);
+console.log(topDonors)
 
 // Problem 3
+// The event director is raffling off company giftbaskets to 3 lucky runners. Randomly select 3 then list their info to notify them.
+let baskets = [];
+while(baskets.length < 3){
+    let random = Math.floor(Math.random() * (runners.length));
+    !baskets.includes(random) ? baskets.push(random) : null;
+}
+let winners = runners.filter((runner => baskets.includes(runner.id)));
+console.log(winners);
