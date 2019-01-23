@@ -1,11 +1,14 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
-whoAreYou = (name) => {
-  return (name => {
-    return `My name is ${name}`;
-  });
+function whoAreYou(someone){
+  const name = someone;
+  console.log(`My name is ${name}`);
+  const redrum = () => {
+    let jack = name;
+    console.log(`All work and no play makes ${jack} a dull boy`);
+  }
+  redrum();
 }
-// debugger;
 whoAreYou("Ian");
 
 // ==== Challenge 2: Create a counter function ====
@@ -14,7 +17,6 @@ whoAreYou("Ian");
 const counter = (num => {
   return () => num++;
 })(0);
-// debugger;
 
 console.log(counter());
 console.log(counter());
